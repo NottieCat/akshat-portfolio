@@ -24,7 +24,7 @@ export default function HeroSection() {
           <Button asChild size="lg" className="transition-transform duration-300 hover:scale-105">
             <a href="/MYRESUME.pdf" download>
               <Download className="mr-2 h-5 w-5" />
-              Download Resume
+              Download Resume 
             </a>
           </Button>
           <Button asChild variant="secondary" size="lg" className="transition-transform duration-300 hover:scale-105">
