@@ -27,7 +27,9 @@ export default function AboutSection() {
             <div className="space-y-3">
               <h2 className="section-title">About Me</h2>
               <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mx-auto lg:mx-0">
-                I'm a passionate full-stack developer with a keen interest in artificial intelligence and building beautiful, user-friendly applications. With a foundation in modern web technologies, I strive to create seamless digital experiences that are both functional and visually appealing.
+                I'm a full-stack developer with a deep love for competitive programming and a strong interest in AI. I enjoy building clean, user-friendly applications that are both functional and visually engaging.
+
+Competitive programming is close to my heart — I love solving problems, optimizing code, and constantly improving my skills. Outside of coding, I explore new tech, contribute to open-source, and dive into the world of AI. I'm always eager to learn and take on new challenges.
               </p>
             </div>
             <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mx-auto lg:mx-0">

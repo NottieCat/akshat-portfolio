@@ -22,7 +22,7 @@ export default function HeroSection() {
         </p>
         <div className="flex flex-col gap-4 sm:flex-row">
           <Button asChild size="lg" className="transition-transform duration-300 hover:scale-105">
-            <a href="/resume.pdf" download>
+            <a href="/MYRESUME.pdf" download>
               <Download className="mr-2 h-5 w-5" />
               Download Resume
             </a>

@@ -21,17 +21,17 @@ const projects = [
     liveUrl: 'https://aeternum-ex.vercel.app/',
     githubUrl: 'https://github.com/NottieCat/aeternum-ex',
   },
-  {
-    id: 2,
-    title: 'E-Commerce Fusion',
-    description: 'A modern, headless e-commerce solution for startups.',
-    longDescription: 'E-Commerce Fusion is a high-performance online store built with a headless architecture for maximum flexibility. It integrates with various payment gateways and CMS platforms, offering a seamless shopping experience for customers and easy management for owners.',
-    image: 'https://placehold.co/600x400.png',
-    aiHint: 'online shopping',
-    tags: ['React', 'Node.js', 'GraphQL', 'Stripe'],
-    liveUrl: '#',
-    githubUrl: '#',
-  },
+  // {
+  //   id: 2,
+  //   title: 'E-Commerce Fusion',
+  //   description: 'A modern, headless e-commerce solution for startups.',
+  //   longDescription: 'E-Commerce Fusion is a high-performance online store built with a headless architecture for maximum flexibility. It integrates with various payment gateways and CMS platforms, offering a seamless shopping experience for customers and easy management for owners.',
+  //   image: 'https://placehold.co/600x400.png',
+  //   aiHint: 'online shopping',
+  //   tags: ['React', 'Node.js', 'GraphQL', 'Stripe'],
+  //   liveUrl: '#',
+  //   githubUrl: '#',
+  // },
   {
     id: 3,
     title: 'Portfolio',
@@ -60,7 +60,7 @@ export default function ProjectsSection() {
             Here are a few projects I've worked on recently.
           </p>
         </div>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2 justify-center">
           {projects.map((project, index) => (
             <Dialog key={project.id}>
               <div
