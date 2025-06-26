@@ -41,7 +41,7 @@ const projects = [
     aiHint: 'mobile interface',
     tags: ['Next.js', 'Typescript'],
     liveUrl: '#',
-    githubUrl: '#',
+    githubUrl: 'https://github.com/NottieCat/akshat-portfolio',
   },
 ];
 
