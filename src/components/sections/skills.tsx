@@ -1,70 +1,83 @@
 "use client";
 
-import { Code, Database, Wind, Cloud, GitBranch, TerminalSquare, Figma, Smartphone } from 'lucide-react';
-import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import type { LucideProps } from 'lucide-react';
-import type { ForwardRefExoticComponent, RefAttributes } from 'react';
+import { Code2, Braces, Database, Wrench } from 'lucide-react';
+import { motion } from 'framer-motion';
 
-const skills = [
-  { name: 'JavaScript', icon: Code },
-  { name: 'TypeScript', icon: Code },
-  { name: 'React', icon: Smartphone },
-  { name: 'Next.js', icon: Smartphone },
-  { name: 'Node.js', icon: TerminalSquare },
-  { name: 'Python', icon: Code },
-  { name: 'Tailwind CSS', icon: Wind },
-  { name: 'SQL & NoSQL', icon: Database },
-  { name: 'Docker', icon: TerminalSquare },
-  { name: 'Git & GitHub', icon: GitBranch },
-  { name: 'Firebase', icon: Cloud },
-  { name: 'Figma', icon: Figma },
+const skillCategories = [
+  {
+    title: 'Languages',
+    icon: Code2,
+    skills: ['C', 'C++', 'JavaScript', 'Python', 'SQL'],
+    color: 'from-blue-400 to-cyan-400'
+  },
+  {
+    title: 'Frontend & Backend',
+    icon: Braces,
+    skills: ['React', 'Next.js', 'Node.js', 'Express.js', 'REST APIs', 'JWT Authentication'],
+    color: 'from-purple-400 to-pink-400'
+  },
+  {
+    title: 'Databases & Systems',
+    icon: Database,
+    skills: ['MySQL', 'PostgreSQL', 'MongoDB', 'Convex DB'],
+    color: 'from-emerald-400 to-teal-400'
+  },
+  {
+    title: 'Tools',
+    icon: Wrench,
+    skills: ['Git', 'GitHub', 'Postman', 'IntelliJ IDEA', 'VS Code'],
+    color: 'from-orange-400 to-rose-400'
+  }
 ];
 
-const ReactIcon = (props: LucideProps) => (
-  <svg {...props} viewBox="-11.5 -10.23174 23 20.46348">
-    <circle cx="0" cy="0" r="2.05" fill="currentColor"></circle>
-    <g stroke="currentColor" strokeWidth="1" fill="none">
-      <ellipse rx="11" ry="4.2"></ellipse>
-      <ellipse rx="11" ry="4.2" transform="rotate(60)"></ellipse>
-      <ellipse rx="11" ry="4.2" transform="rotate(120)"></ellipse>
-    </g>
-  </svg>
-);
-
-skills[2].icon = ReactIcon as ForwardRefExoticComponent<Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>>;
-skills[3].icon = ReactIcon as ForwardRefExoticComponent<Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>>;
-
-
 export default function SkillsSection() {
-  const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 });
-
   return (
-    <section id="skills" className="py-24 sm:py-32">
-      <div
-        ref={ref}
-        className={`container mx-auto px-4 md:px-6 transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-      >
-        <div className="space-y-6 text-center mb-12">
-          <h2 className="section-title">My Technical Skills</h2>
-          <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-            A selection of technologies and tools I'm proficient in.
+    <section id="skills" className="py-24 sm:py-32 relative z-10">
+      <div className="container mx-auto px-4 md:px-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl text-white inline-block mb-2">
+            Technical Arsenal
+          </h2>
+          <div className="h-1 w-20 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto rounded-full mb-4"></div>
+          <p className="mx-auto max-w-[700px] text-slate-400 text-lg">
+            Technologies I use to build scalable, high-performance applications.
           </p>
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
-          {skills.map((skill, index) => (
-            <div
-              key={skill.name}
-              className={`transition-all duration-500 ease-out ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
-              style={{ transitionDelay: `${index * 50}ms` }}
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          {skillCategories.map((category, idx) => (
+            <motion.div
+              key={category.title}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: idx * 0.15 }}
+              className="relative group p-[1px] rounded-2xl bg-gradient-to-b from-white/10 to-transparent hover:from-white/30 transition-all duration-500"
             >
-              <Card className="text-center group transition-all duration-300 hover:bg-accent/50 hover:-translate-y-2 hover:shadow-lg hover:shadow-primary/20">
-                <CardContent className="p-6 flex flex-col items-center justify-center gap-4">
-                  <skill.icon className="h-10 w-10 text-primary transition-transform duration-300 group-hover:scale-125" />
-                  <p className="font-semibold text-sm">{skill.name}</p>
-                </CardContent>
-              </Card>
-            </div>
+              <div className="absolute inset-0 bg-gradient-to-b opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-2xl blur-xl z-0" />
+              <div className="relative h-full bg-slate-950/80 backdrop-blur-sm p-6 rounded-2xl border border-white/5 flex flex-col items-center text-center z-10">
+                <div className={`p-4 rounded-xl bg-gradient-to-br ${category.color} bg-opacity-10 mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                  <category.icon className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-6">{category.title}</h3>
+                <div className="flex flex-wrap justify-center gap-2">
+                  {category.skills.map((skill) => (
+                    <span 
+                      key={skill} 
+                      className="px-3 py-1.5 bg-slate-800/50 hover:bg-slate-700/80 border border-slate-700/50 text-slate-300 hover:text-white text-sm rounded-lg transition-colors cursor-default"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>
